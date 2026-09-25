@@ -308,7 +308,9 @@ export default function Experience() {
             type="button"
             className="focus-ring mt-4 w-full max-w-md border border-[#3d7cff] bg-[#3d7cff]/10 px-5 py-3 text-xs uppercase tracking-[0.28em] text-[#3d7cff]"
             onClick={() => setShareOpen(true)}
-          >
+          ><p className="mt-6 max-w-md text-center text-lg italic text-[#e8e4dc]">
+  {`${titleKk} ІЗІ — «${pull ? L.pull[pull as keyof typeof L.pull] : ""}, ${dev ? L.develop[dev as keyof typeof L.develop] : ""} арқылы ${tryItem ? L.try[tryItem as keyof typeof L.try] : ""} басталады.»`}
+</p>
             Stories
           </button>
           <div className="mt-4 flex flex-wrap gap-3">

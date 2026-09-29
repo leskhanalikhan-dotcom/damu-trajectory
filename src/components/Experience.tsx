@@ -306,6 +306,7 @@ export default function Experience() {
             tryItem={tryItem ? L.try[tryItem as keyof typeof L.try] : ""}
             ending={L.ending[endingKey as keyof typeof L.ending]}
             pid={pid}
+            extra={aiLine}
           />
           <button
             type="button"
@@ -685,6 +686,7 @@ function StoryCard({
   tryItem,
   ending,
   pid,
+  extra,
   innerRef,
 }: {
   lang: Lang;
@@ -694,6 +696,7 @@ function StoryCard({
   tryItem: string;
   ending: string;
   pid: string;
+  extra?: string;
   innerRef?: React.RefObject<HTMLDivElement>;
 }) {
   const st = storyCopy[lang];
@@ -726,7 +729,9 @@ function StoryCard({
         <div>↓ {ending}</div>
       </div>
       <p className="mono mt-10 text-[10px] tracking-[0.3em]">PATH ID: {pid}</p>
-      <p className="mt-8 text-sm text-[#8a8f99]">{st.start}</p>
+      <p className="mt-8 text-base leading-relaxed text-[#e8e4dc]">
+        {extra || st.start}
+      </p>
     </div>
   );
 }

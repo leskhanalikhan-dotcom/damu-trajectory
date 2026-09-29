@@ -16,6 +16,7 @@ import {
   storyCopy,
   tryKeys,
 } from "@/content/copy";
+import { reflectionLine } from "@/content/reflections";
 
 type Phase =
   | "intro"
@@ -37,7 +38,8 @@ export default function Experience() {
   const [draft, setDraft] = useState("");
   const [sound, setSound] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
-  const [shareLang, setShareLang] = useState<Lang>("kk");
+  const [shareLang, setShareLang] = useState<Lang>("kk")
+    const [aiLine, setAiLine] = useState("");
   const restRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
 
@@ -284,7 +286,8 @@ export default function Experience() {
               items={[...tryKeys]}
               display={(k) => L.try[k as keyof typeof L.try]}
               onPick={(v) => {
-                setTryItem(v);
+                 setTryItem(v);
+                setAiLine(reflectionLine(pull, dev, v));
                 setPhase("card");
               }}
             />
